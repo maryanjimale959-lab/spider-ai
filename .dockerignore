@@ -1,0 +1,13 @@
+# Build context hygiene for the Docker image
+**/node_modules
+**/__pycache__
+**/*.py[cod]
+**/.pytest_cache
+**/*.tsbuildinfo
+backend/.venv
+backend/storage
+backend/*.db
+backend/.env
+frontend/dist
+frontend/tools/shots
+.git

@@ -1,0 +1,23 @@
+# Railway deployment for SPIDER AI.
+#
+# One service does everything: the FastAPI process serves the API and the built
+# interface from the same origin. Add a volume and mount it at /data - that is
+# where the database and the uploaded documents live.
+#
+# Variables to set in the dashboard:
+#   SPIDER_SECRET_KEY   a long random string (tokens are signed with it; without
+#                       it every restart signs people out)
+#   SPIDER_DATABASE_URL sqlite:////data/spider_ai.db  (default in the image)
+#                       or a Postgres URL, in which case run
+#                       `alembic upgrade head` once against it
+#   SPIDER_STORAGE_DIR  /data/storage                 (default in the image)
+
+[build]
+builder = "dockerfile"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+startCommand = "uvicorn app.main:app --host 0.0.0.0 --port $PORT --app-dir backend"
+healthcheckPath = "/api/health"
+healthcheckTimeout = 60
+restartPolicyType = "on_failure"

@@ -1,0 +1,127 @@
+/* ==========================================================================
+   Spider layer - the creature, its silk, the scan and the hanging markers
+   ========================================================================== */
+
+.spider-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 30;
+  animation: spider-descent 1.1s var(--ease);
+}
+@keyframes spider-descent {
+  from { opacity: 0; transform: translateY(-16px); }
+  to { opacity: 1; transform: none; }
+}
+
+.spider-body {
+  filter: drop-shadow(0 5px 7px rgba(14, 18, 23, 0.26));
+}
+.leg-femur { opacity: 0.95; }
+.leg-tibia { opacity: 0.9; }
+.leg-knee { opacity: 0.9; }
+.leg-foot { opacity: 0.85; transition: r 0.12s linear; }
+[data-theme="dark"] .leg-femur,
+[data-theme="dark"] .leg-tibia { stroke: #b9c6d2; }
+[data-theme="dark"] .leg-knee,
+[data-theme="dark"] .leg-foot { fill: #cdd8e2; }
+[data-theme="dark"] .spider-body { filter: drop-shadow(0 5px 9px rgba(0, 0, 0, 0.55)); }
+[data-theme="dark"] .spider-shadow path { stroke: rgba(0, 0, 0, 0.5); }
+
+/* ---- silk --------------------------------------------------------------- */
+.silk-strand {
+  stroke: rgba(120, 132, 145, 0.85);
+  stroke-width: 0.4;
+  opacity: 0;
+  transition: opacity 0.12s linear;
+}
+.silk-splash { opacity: 0; transition: opacity 0.18s ease; }
+.silk-arc { opacity: 0; transition: opacity 0.4s ease; }
+.silk-trail { opacity: 0.35; }
+.silk-hang { opacity: 0; transition: opacity 0.3s ease; }
+
+/* ---- scanning ------------------------------------------------------------ */
+.scan-band {
+  fill: rgba(58, 90, 114, 0.08);
+  stroke: rgba(58, 90, 114, 0.38);
+  stroke-width: 0.6;
+  mix-blend-mode: multiply;
+  animation: scan-sweep 0.95s cubic-bezier(0.35, 0, 0.2, 1) forwards;
+}
+[data-theme="dark"] .scan-band {
+  mix-blend-mode: screen;
+  fill: rgba(127, 176, 214, 0.1);
+  stroke: rgba(127, 176, 214, 0.42);
+}
+
+@keyframes scan-sweep {
+  0% { opacity: 0; transform: scaleX(0.08); transform-origin: left center; }
+  30% { opacity: 1; }
+  100% { opacity: 0.8; transform: scaleX(1); transform-origin: left center; }
+}
+
+/* ---- body state ---------------------------------------------------------- */
+.body-core.is-scanning .marking { animation: signal-pulse 1.4s ease-in-out infinite; }
+.body-core.is-scanning .eye.primary { filter: drop-shadow(0 0 2.5px rgba(226, 238, 246, 0.85)); }
+.body-core.is-airborne .spinneret { stroke: rgba(255, 255, 255, 0.9); }
+
+@keyframes signal-pulse {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.55; }
+}
+
+/* ---- markers: a finding hanging off the line it came from ---------------- */
+.marker { transition: opacity 0.3s ease; }
+.marker-strand { stroke: rgba(120, 132, 145, 0.5); stroke-width: 0.7; stroke-dasharray: 2 3; }
+.marker-halo {
+  fill: rgba(92, 104, 116, 0.1);
+  stroke: rgba(92, 104, 116, 0.4);
+  stroke-width: 0.7;
+  transition: r 0.35s var(--ease), fill 0.3s ease;
+}
+.marker-core { fill: var(--keyword); transition: r 0.3s ease, fill 0.3s ease; }
+
+.marker-topic .marker-core { fill: var(--topic); }
+.marker-figure .marker-core,
+.marker-statistic .marker-core,
+.marker-date .marker-core,
+.marker-definition .marker-core,
+.marker-decision .marker-core,
+.marker-action_item .marker-core,
+.marker-person .marker-core,
+.marker-fact .marker-core,
+.marker-critical_statement .marker-core { fill: var(--figure); }
+.marker-writing_issue .marker-core { fill: var(--writing); }
+.marker-contradiction .marker-core,
+.marker-unsupported_claim .marker-core,
+.marker-overreaching_conclusion .marker-core,
+.marker-ambiguous_statement .marker-core,
+.marker-logic_gap .marker-core { fill: var(--logic); }
+.marker-strength .marker-core,
+.marker-recommendation .marker-core { fill: var(--strength); }
+.marker-keyword_concept .marker-core,
+.marker-clarifying_question .marker-core { fill: var(--keyword); }
+
+.marker-major .marker-halo { fill: rgba(124, 90, 146, 0.14); stroke: rgba(124, 90, 146, 0.45); }
+.marker-minor .marker-halo { fill: rgba(161, 116, 31, 0.14); stroke: rgba(161, 116, 31, 0.45); }
+
+.marker.is-active .marker-core { fill: var(--accent); }
+.marker.is-active .marker-halo {
+  fill: rgba(58, 90, 114, 0.16);
+  stroke: rgba(58, 90, 114, 0.7);
+  animation: marker-ping 1.8s ease-out infinite;
+}
+@keyframes marker-ping {
+  0%, 100% { stroke-width: 0.7; }
+  50% { stroke-width: 1.8; }
+}
+
+.crawl-is-paused .scan-band,
+.crawl-is-paused .body-core.is-scanning .marking { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  .spider-layer { animation: none; }
+  .silk-trail, .silk-arc, .silk-hang, .marker-strand { display: none; }
+  .scan-band { animation: none; opacity: 0.6; }
+}

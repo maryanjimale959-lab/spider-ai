@@ -1,0 +1,36 @@
+# Focus and Morning Screen Time in Secondary Classrooms
+
+A report prepared by Amina Yusuf for the Grade 10 reading programme, Term 2.
+
+## Introduction
+
+Many teachers at our school believe that students arrive already tired. They say that students spend the first hour of the school day unable to settle into a task. This report looks at whether the phone a student holds in the morning has anything to do with that. The question matters because our staff meeting has to decide whether to adopt a phone basket policy before the next term begins, and nobody wants to make that decision on a feeling.
+
+## What we did
+
+Between 4 March and 22 March, I asked 74 students in three Grade 10 classes to fill a short paper form each morning for two weeks. The form asked one question about the previous evening: how many minutes of phone use after the last lesson. It asked one question that morning: how hard it was to concentrate during the first period, on a scale from 1 to 5. I collected 61 completed forms. The remaining 13 were not returned, mostly on Fridays.
+
+## What the forms show
+
+Students who reported more than ninety minutes of phone use after the last lesson marked their concentration as 4 or 5 (hard) on 71% of mornings. Students who reported less than thirty minutes marked 4 or 5 on 34% of mornings. This is the clearest pattern in the data, and it is the reason I recommend a trial of the phone basket policy rather than a full rule.
+
+The pattern is not proof. The students who used phones longest were also the students who stayed up latest, and the two effects cannot be separated with the data I collected. Some students also told me they wrote the numbers from memory rather than from any record. Sleep itself was never measured.
+
+## The second finding
+
+Concentration improved across the two weeks for almost every group, including the heavy-use group. This suggests that the beginning of term was doing something on its own: the classes were still settling into a new timetable, and the first week always looks worse than the third.
+
+Teachers clearly know this already. Everybody knows that a new timetable is hard.
+
+## What I recommend
+
+1. Trial the phone basket policy in one Grade 10 class for four weeks starting in Term 3.
+2. Measure sleep directly, using the school's existing wellbeing questionnaire, so the two effects can be separated.
+3. Ask students to record their phone minutes from the device's own screen-time report instead of from memory.
+4. Repeat the survey with all four Grade 10 classes so the result is not standing on 61 forms.
+
+The teaching staff should decide whether this is worth the morning supervision cost. I have not measured that cost, and the report does not claim that the policy will improve grades. Improved concentration is the only outcome examined here, and it is a narrow claim.
+
+## Sources
+
+No external sources were consulted for this report. The figures come from the paper forms collected at the school.

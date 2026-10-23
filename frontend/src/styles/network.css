@@ -1,0 +1,87 @@
+/* ==========================================================================
+   Spider Network (Mode B)
+   ========================================================================== */
+
+.network-shell {
+  position: relative;
+  flex: 1 1 auto;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--canvas);
+}
+
+.network-shell .react-flow {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.react-flow__attribution { display: none; }
+
+.hub-node {
+  width: 132px;
+  padding: 13px 10px;
+  border-radius: 20px;
+  display: grid;
+  justify-items: center;
+  gap: 3px;
+  background: radial-gradient(circle at 50% 24%, rgba(31, 111, 107, 0.14), var(--surface) 66%);
+  border: 1px solid var(--accent-line);
+  box-shadow: var(--shadow-2);
+}
+.hub-spider { width: 50px; height: 50px; }
+.hub-label {
+  font-family: var(--font-display); font-size: 11.5px; font-weight: 800;
+  letter-spacing: 0.14em; color: var(--accent); text-transform: uppercase;
+}
+.hub-sub { font-size: 10.5px; color: var(--text-mute); text-align: center; max-width: 114px; }
+.hub-node.is-scanning { animation: hub-breathe 1.5s ease-in-out infinite; }
+
+@keyframes hub-breathe {
+  0%, 100% { box-shadow: var(--shadow-1); }
+  50% { box-shadow: 0 0 0 1px var(--accent-line), 0 0 26px -10px rgba(31, 111, 107, 0.4); }
+}
+
+.web-node {
+  display: flex; align-items: center; gap: 7px;
+  padding: 7px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: var(--shadow-1);
+  max-width: 224px;
+  cursor: pointer;
+  transition: border-color 0.18s ease, transform 0.14s ease, box-shadow 0.2s ease;
+}
+.web-node:hover { border-color: var(--accent-line); transform: translateY(-1px); }
+.web-node.is-selected { border-color: var(--accent); box-shadow: var(--shadow-2); }
+.web-node .dot { width: 8px; height: 8px; border-radius: 50%; flex: 0 0 auto; }
+.web-node .label {
+  font-size: 12.5px; line-height: 1.35; color: var(--text); font-weight: 500;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 158px;
+}
+.web-node .meta {
+  font-family: var(--font-mono); font-size: 10px; color: var(--text-faint);
+  white-space: nowrap; text-transform: lowercase;
+}
+.web-node.sev-major { border-color: rgba(122, 79, 150, 0.45); }
+.web-node.sev-minor { border-color: rgba(168, 116, 26, 0.4); }
+.web-node.type-evidence .label { font-style: italic; color: var(--text-dim); }
+
+.network-controls {
+  position: absolute; bottom: 14px; left: 14px; z-index: 5;
+  display: flex; align-items: center; gap: 10px;
+}
+
+.network-legend {
+  position: absolute; right: 14px; top: 12px;
+  display: flex; flex-wrap: wrap; gap: 6px; max-width: 46%;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+.network-legend .chip { display: inline-flex; align-items: center; gap: 6px; }
+.network-legend .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+
+.react-flow__handle { opacity: 0; pointer-events: none; }

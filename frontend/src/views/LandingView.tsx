@@ -134,7 +134,7 @@ export default function LandingView({ onEnter }: Props) {
           <nav className="lp-nav__links" aria-label="Page sections">
             <a href="#reports">What it reports</a>
             <a href="#principles">Principles</a>
-            <a href="https://github.com/maryanjimale959-lab" target="_blank" rel="noreferrer">
+            <a href="https://github.com/maryanjimale959-lab/spider-ai" target="_blank" rel="noreferrer">
               Source
             </a>
           </nav>
